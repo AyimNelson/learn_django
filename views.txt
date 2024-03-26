@@ -15,7 +15,7 @@ ListView is a built-in classbase view for listing items of a model to a template
 
 model -- > The model who's objects will be retrieve
 template_name -- > The html file that will display the list
-context_object_name -- > The name representing how the objects will be called with
+context_object_name -- > The name representing how the objects will be called.
 
 View Syntax
 
