@@ -1,0 +1,43 @@
+Views
+CRUD
+Create
+Read -- List & Detail
+Upate
+Delete
+
+Django generic views
+
+from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView
+
+# Handling ListView
+
+ListView is a built-in classbase view for listing items of a model to a template
+
+model -- > The model who's objects will be retrieve
+template_name -- > The html file that will display the list
+context_object_name -- > The name representing how the objects will be called with
+
+View Syntax
+
+class YourClassName(ListView):
+    model = YourModelName
+    template_name = "path/to/yourTemplateName.html"
+    context_object_name = "name"
+
+Urls
+from app.views import YourClassName
+
+urlpatterns = [
+    path('pathName', YourClassName.as_view(), name='yourPathName')
+]
+
+pathName -- > The name to be displayed in the url of the browser
+Eg: www.mytodo.com/tasks
+
+where pathName = tasks
+YourClassName.as_view() -- > The name of your view to be rendered
+name -- > how the url path will be called inside an html template tag
+
+Template tags will be discused later...
+
+
