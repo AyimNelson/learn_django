@@ -1,0 +1,12 @@
+<!-- Django Template tags -->
+<h1>My Todo</h1>
+<ul>
+    {% for task in tasks %}
+    <li>
+        {{task.title}}
+        <br>
+        {{task.description}}
+    </li>
+    {% endfor %}
+</ul>
+
