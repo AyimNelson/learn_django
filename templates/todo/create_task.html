@@ -1,0 +1,8 @@
+<h1>Create New Task</h1>
+
+<form action="" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Create</button>
+
+</form>

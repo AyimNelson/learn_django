@@ -1,5 +1,10 @@
 <!-- Django Template tags -->
 <h1>My Todo</h1>
+
+<div>
+    <a href="{% url 'create_task' %}">Add task</a>
+</div>
+
 <ul>
     {% for task in tasks %}
     <li>
