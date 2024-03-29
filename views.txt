@@ -41,3 +41,39 @@ name -- > how the url path will be called inside an html template tag
 Template tags will be discused later...
 
 
+----------------------------------------
+
+# Creating objects
+
+CreateView is a built-in classbase view for Creating items of a model
+
+model -- > The model who's objects will be retrieve
+template_name -- > The html file that will display the list
+fields -- > The attributes of the models that you want to input.
+Note: If you want to input all the attributes of the models use, fields='__all__'
+success_url -- The url that gets redirected  to after creating the object
+
+View Syntax
+# Import reverse_lazy
+from django.urls import reverse_lazy
+
+class YourClassName(CreateView):
+    model = YourModelName
+    template_name = "path/to/yourTemplateName.html"
+    fields = ['attr1', 'attr2', 'attr3' ...]
+    success_url = reverse_lazy('name of Urlpath to redirect to')
+
+Urls
+from app.views import YourClassName
+
+urlpatterns = [
+    path('pathName', YourClassName.as_view(), name='yourPathName')
+]
+
+pathName -- > The name to be displayed in the url of the browser
+Eg: www.mytodo.com/task/create
+
+where pathName = tasks
+YourClassName.as_view() -- > The name of your view to be rendered
+name -- > how the url path will be called inside an html template tag
+
