@@ -17,3 +17,9 @@ class CreateTask(CreateView):
     template_name = "todo/create_task.html"
     fields = '__all__'
     success_url = reverse_lazy('tasks')
+    
+
+class TaskDetail(DetailView):
+    model = Task
+    template_name = "todo/task_detail.html"
+    context_object_name = "task"
