@@ -23,3 +23,11 @@ class TaskDetail(DetailView):
     model = Task
     template_name = "todo/task_detail.html"
     context_object_name = "task"
+    
+    
+class UpdateTask(UpdateView):
+    model = Task
+    template_name = "todo/update_task.html"
+    fields = '__all__'
+    success_url = reverse_lazy('tasks')
+    context_object_name = 'task'
