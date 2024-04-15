@@ -1,0 +1,85 @@
+Software development with python/Django
+------
+- Create a folder
+- Open in vscode
+- Open the terminal in vscode
+- Intall django
+CMD
+pipenv install django
+- Activate the virtual environment
+CMD
+pipenv shell
+- Create a project
+CDM
+django-admin startproject projectname .
+- Runserver 
+CMD
+py manage.py runserver
+-Creating an App
+CMD
+py manage.py startapp appname
+
+- Connect app to project
+Go to projectname/settings.py
+Add 'appName' to INSTALLED_APPS[
+'appname'
+]
+
+Building urls.py for the app
+
+- Configure urls
+Go to projectName/urls.py
+import include function
+from django.urls import include, path
+path('', include('appaname.urls'))
+
+Create urls.py inside appname
+appname/urls.py
+configure urlpatterns for the app
+
+from django.urls import path
+urlpatterns=[
+]
+
+Building the homepage
+
+in appname/views.py
+
+import render from django
+
+from django.shortcuts import render
+def home(request):
+	return render(request, 'home.html')
+
+connect view to urls
+
+inside appname/urls.py
+from django.urls import path
+from . import views
+urlpatterns = [
+	path('', views.home, name='home')
+]
+
+configure templates
+Inside of your workspace/Base directory create a folder called 'templates'
+
+Add home.html file to the templates
+Add these texts 
+<h1>Welcome Home</h1>
+
+Configure templates for project settings
+Inside of projectName/settings.py
+
+import os
+This should be added at the top most of the codes in settings.py
+
+In 
+TEMPLATES[
+'DIRS':[os.path.join(BASE_DIRS, 'templates')]
+]
+
+Runserver
+py manage.py runserver
+
+Hurray!!!!
+Happy coding(Developers Therapy)

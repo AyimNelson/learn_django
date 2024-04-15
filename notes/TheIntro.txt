@@ -1,0 +1,10 @@
+Introduction to Django
+
+** The concept of Software Development
+
+-- CRUD --
+
+-Create
+-Read ---[List,Detail]
+-Update
+-Delete

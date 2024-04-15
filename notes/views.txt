@@ -1,0 +1,149 @@
+Views
+CRUD
+Create
+Read -- List & Detail
+Upate
+Delete
+
+Django generic views
+
+from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView
+
+# Handling ListView
+
+ListView is a built-in classbase view for listing items of a model to a template
+
+model -- > The model who's objects will be retrieve
+template_name -- > The html file that will display the list
+context_object_name -- > The name representing how the objects will be called.
+
+View Syntax
+
+class YourClassName(ListView):
+    model = YourModelName
+    template_name = "path/to/yourTemplateName.html"
+    context_object_name = "name"
+
+Urls
+from app.views import YourClassName
+
+urlpatterns = [
+    path('pathName', YourClassName.as_view(), name='yourPathName')
+]
+
+pathName -- > The name to be displayed in the url of the browser
+Eg: www.mytodo.com/tasks
+
+where pathName = tasks
+YourClassName.as_view() -- > The name of your view to be rendered
+name -- > how the url path will be called inside an html template tag
+
+Template tags will be discused later...
+
+
+----------------------------------------
+
+# Creating objects
+
+CreateView is a built-in classbase view for Creating items of a model
+
+model -- > The model who's objects will be retrieve
+template_name -- > The html file that will display the list
+fields -- > The attributes of the models that you want to input.
+Note: If you want to input all the attributes of the models use, fields='__all__'
+success_url -- The url that gets redirected  to after creating the object
+
+View Syntax
+# Import reverse_lazy
+from django.urls import reverse_lazy
+
+class YourClassName(CreateView):
+    model = YourModelName
+    template_name = "path/to/yourTemplateName.html"
+    fields = ['attr1', 'attr2', 'attr3' ...]
+    success_url = reverse_lazy('name of Urlpath to redirect to')
+
+Urls
+from app.views import YourClassName
+
+urlpatterns = [
+    path('pathName', YourClassName.as_view(), name='yourPathName')
+]
+
+pathName -- > The name to be displayed in the url of the browser
+Eg: www.mytodo.com/task/create
+
+where pathName = tasks
+YourClassName.as_view() -- > The name of your view to be rendered
+name -- > how the url path will be called inside an html template tag
+
+----------------------------------------
+
+# Viewing the detail of an objects
+
+DetailView is a built-in classbase view for Viewing the detail of items of a model
+
+model -- > The model who's objects will be retrieve
+template_name -- > The html file that will display the list
+context_object_name -- > The name representing how the objects will be called.
+
+
+View Syntax
+# Import reverse_lazy
+from django.urls import reverse_lazy
+
+class YourClassName(DetailView):
+    model = YourModelName
+    template_name = "path/to/yourTemplateName.html"
+    context_object_name = "name"
+    
+Urls
+from app.views import YourClassName
+
+urlpatterns = [
+    path('pathName/<str:pk>/', YourClassName.as_view(), name='yourPathName')
+]
+
+pathName -- > The name to be displayed in the url of the browser
+Eg: www.mytodo.com/task/view/123
+where 123 = the primary_key(pk or id) of the object
+
+-------------------------------------------------------------
+
+# Update objects
+
+UpdateView is a built-in classbase view for Updating items of a model
+
+model -- > The model who's objects will be retrieve
+template_name -- > The html file that will display the list
+fields -- > The attributes of the models that you want to input.
+Note: If you want to input all the attributes of the models use, fields='__all__'
+success_url -- The url that gets redirected  to after creating the object
+context_object_name -- The name representing how the objects will be called.
+
+View Syntax
+# Import reverse_lazy
+from django.urls import reverse_lazy
+
+class YourClassName(UpdateView):
+    model = YourModelName
+    template_name = "path/to/yourTemplateName.html"
+    fields = ['attr1', 'attr2', 'attr3' ...]
+    success_url = reverse_lazy('name of Urlpath to redirect to')
+    context_object_name = 'name'
+
+Urls
+from app.views import YourClassName
+
+urlpatterns = [
+    path('pathName/<str:pk>', YourClassName.as_view(), name='yourPathName')
+]
+
+
+pathName -- > The name to be displayed in the url of the browser
+Eg: www.mytodo.com/task/update/123
+where 123 = the primary_key(pk or id) of the object
+
+where pathName = tasks/update
+YourClassName.as_view() -- > The name of your view to be rendered
+name -- > how the url path will be called inside an html template tag

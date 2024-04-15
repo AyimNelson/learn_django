@@ -1,0 +1,90 @@
+MVT - Model - View - Template
+
+Django Models --> Database --> Storing Data
+
+Database management systems
+- SQl
+- Mongo DB
+- Postgresql
+- Microsoft access
+- Etc
+
+Sqlite3 Database
+- Light weight
+
+
+CRUD
+- Create
+- Read -- List -- Detail
+- Update
+- Delete
+
+Database Table
+- Entity (Class, Object)
+- Attribute (qualities that an entity possess)
+- Relation (Connection between entities)
+
+Object
+- Is an instance of a class
+
+
+Modelling --> Creating Database Table
+
+TodoApp Modelling
+
+Table Name = Task
+
+Attributes
+- title
+- start_date and time
+- end_date and time
+- description
+
+Data type
+Character(String)
+Integer
+Booloean
+Date
+DateTime
+Text(String)
+Foreignkey (Many to one)
+Primarykey
+ManytoMany
+OnetoMany
+
+
+Admin
+
+Register the models to view in the admin dashboard
+
+from app.models import ModelName
+
+admin.site.register(ModelName)
+
+Make Migrations
+- Create a migration object inside migrations folder
+- Code
+py manage.py makemigrations
+
+Migrate
+- Create a database table for the models
+code
+py manage.py migrate
+
+
+Getting access to the admin dashboard
+- Create a Superuser
+- code
+py manage.py createsuperuser
+
+Provide the information
+- username
+- email
+- password
+
+Note: Password not visible when typing
+
+
+
+
+
