@@ -1,5 +1,5 @@
 <h1>Task Detail</h1>
-
+<a href="{% url 'update_task' task.pk %}">Update Task</a> <br>
 {{task.title}} <br>
 {{task.description}} <br>
 {{task.start_date}} <br>
